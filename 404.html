@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>404 — Página no encontrada | Matías Lucero</title>
+    <meta name="description" content="La página que buscas no existe. Volvé al inicio.">
+    <meta name="robots" content="noindex, follow">
+    <meta name="theme-color" content="#0f172a">
+
+    <meta property="og:title" content="404 — Matías Lucero">
+    <meta property="og:description" content="La página que buscas no existe.">
+    <meta property="og:url" content="https://mlucero.com.ar/404.html">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="es_AR">
+
+    <link rel="canonical" href="https://mlucero.com.ar/404.html">
+    <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://kit.fontawesome.com">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/c5dc02393b.js" crossorigin="anonymous" defer></script>
+
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+    <nav class="nav" aria-label="Navegación principal">
+        <div class="nav-inner">
+            <a href="/" class="nav-brand" aria-label="Ir al inicio">ML</a>
+            <div class="nav-links">
+                <a href="/" class="nav-link" aria-label="Inicio">Inicio</a>
+                <button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema">
+                    <i class="fa-solid fa-moon" id="themeIcon"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main">
+        <div class="container">
+            <div class="card" style="padding: 48px 32px;">
+                <p class="error-code">404</p>
+                <h1 class="error-title">Página no encontrada</h1>
+                <p class="error-desc">La página que estás buscando no existe o fue movida.</p>
+                <a href="/" class="btn-home" aria-label="Volver al inicio">
+                    <i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Volver al inicio
+                </a>
+            </div>
+
+            <footer class="footer">
+                <p>&copy; 2026 Matías Lucero — Todos los derechos reservados</p>
+            </footer>
+        </div>
+    </main>
+
+    <script>
+        (function() {
+            const toggle = document.getElementById('themeToggle');
+            const icon = document.getElementById('themeIcon');
+            const stored = localStorage.getItem('theme');
+
+            if (stored === 'light') {
+                document.documentElement.setAttribute('data-theme', 'light');
+                icon.className = 'fa-solid fa-sun';
+            }
+
+            toggle.addEventListener('click', function() {
+                const current = document.documentElement.getAttribute('data-theme');
+                if (current === 'light') {
+                    document.documentElement.removeAttribute('data-theme');
+                    icon.className = 'fa-solid fa-moon';
+                    localStorage.setItem('theme', 'dark');
+                } else {
+                    document.documentElement.setAttribute('data-theme', 'light');
+                    icon.className = 'fa-solid fa-sun';
+                    localStorage.setItem('theme', 'light');
+                }
+            });
+        })();
+    </script>
+
+</body>
+</html>
