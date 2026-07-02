@@ -2,41 +2,76 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
-    background-color: #0f172a;
-    color: #f8fafc;
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #0b1120 0%, #0f172a 50%, #0d1117 100%);
+    color: #f1f5f9;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    padding: 20px;
+    padding: 24px;
+    line-height: 1.6;
 }
 
 .container {
     text-align: center;
-    max-width: 400px;
+    max-width: 420px;
     width: 100%;
+}
+
+.card {
+    background: rgba(30, 41, 59, 0.5);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-radius: 20px;
+    padding: 40px 32px;
+    border: 1px solid rgba(56, 189, 248, 0.08);
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.04);
+    animation: fadeUp 0.8s ease-out both;
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(24px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .avatar {
     width: 150px;
     height: 150px;
     border-radius: 50%;
-    background-color: #fff;
     object-fit: cover;
-    border: 3px solid #38bdf8;
-    margin-bottom: 16px;
-    box-shadow: 0 4px 14px rgba(56, 189, 248, 0.2);
+    border: 3px solid rgba(56, 189, 248, 0.3);
+    margin-bottom: 20px;
+    box-shadow:
+        0 0 0 1px rgba(56, 189, 248, 0.1),
+        0 8px 24px rgba(0, 0, 0, 0.3);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.avatar:hover {
+    border-color: #38bdf8;
+    box-shadow:
+        0 0 0 2px rgba(56, 189, 248, 0.2),
+        0 8px 32px rgba(56, 189, 248, 0.15);
 }
 
 h1 {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     font-weight: 700;
-    margin-bottom: 4px;
-    color: #f1f5f9;
+    margin-bottom: 6px;
+    color: #ffffff;
+    letter-spacing: -0.02em;
 }
 
 .subtitle {
@@ -49,36 +84,111 @@ h1 {
 .links-container {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 14px;
 }
 
-.links-container i{
-    padding: 0 0.5rem;
+.links-container i {
+    width: 20px;
+    text-align: center;
+    margin-right: 8px;
+    font-size: 1.15rem;
 }
 
 .link-card {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 14px;
-    background-color: #1e293b;
-    color: #f8fafc;
+    padding: 14px 20px;
+    background: rgba(30, 41, 59, 0.6);
+    color: #f1f5f9;
     text-decoration: none;
-    border-radius: 8px;
+    border-radius: 12px;
     font-weight: 600;
     font-size: 1rem;
-    border: 1px solid #334155;
-    transition: all 0.2s ease-in-out;
+    border: 1px solid rgba(51, 65, 85, 0.5);
+    transition: all 0.25s ease;
+    position: relative;
+    overflow: hidden;
 }
 
-.link-card:hover {
-    background-color: #38bdf8;
-    color: #0f172a;
-    border-color: #38bdf8;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(56, 189, 248, 0.2);
+.link-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 12px;
+    opacity: 0;
+    transition: opacity 0.25s ease;
 }
 
-.email-text {
-    cursor: pointer;
+.link-card:hover::before {
+    opacity: 1;
+}
+
+.link-card.github:hover {
+    background: #1b1f23;
+    border-color: #6e40c9;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(110, 64, 201, 0.25);
+    color: #ffffff;
+}
+
+.link-card.linkedin:hover {
+    background: #0a66c2;
+    border-color: #0a66c2;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(10, 102, 194, 0.25);
+    color: #ffffff;
+}
+
+.link-card.email:hover {
+    background: #16a34a;
+    border-color: #16a34a;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(22, 163, 74, 0.25);
+    color: #ffffff;
+}
+
+.link-card:active {
+    transform: translateY(-1px);
+}
+
+.footer {
+    margin-top: 24px;
+    font-size: 0.8rem;
+    color: #475569;
+    animation: fadeUp 0.8s ease-out 0.2s both;
+}
+
+.footer p {
+    opacity: 0.8;
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 16px;
+    }
+
+    .card {
+        padding: 32px 20px;
+        border-radius: 16px;
+    }
+
+    .avatar {
+        width: 120px;
+        height: 120px;
+    }
+
+    h1 {
+        font-size: 1.35rem;
+    }
+
+    .subtitle {
+        font-size: 0.88rem;
+        margin-bottom: 24px;
+    }
+
+    .link-card {
+        padding: 12px 16px;
+        font-size: 0.95rem;
+    }
 }
