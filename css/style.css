@@ -15,8 +15,6 @@
     --nav-bg: rgba(15, 23, 42, 0.8);
     --nav-border: rgba(51, 65, 85, 0.3);
     --h1-color: #ffffff;
-    --skill-bg: rgba(30, 41, 59, 0.4);
-    --skill-border: rgba(51, 65, 85, 0.3);
     --project-bg: rgba(30, 41, 59, 0.4);
     --project-border: rgba(51, 65, 85, 0.3);
     --tag-bg: rgba(56, 189, 248, 0.1);
@@ -43,8 +41,6 @@
     --nav-bg: rgba(255, 255, 255, 0.85);
     --nav-border: rgba(0, 0, 0, 0.08);
     --h1-color: #0f172a;
-    --skill-bg: rgba(255, 255, 255, 0.5);
-    --skill-border: rgba(0, 0, 0, 0.08);
     --project-bg: rgba(255, 255, 255, 0.5);
     --project-border: rgba(0, 0, 0, 0.08);
     --tag-bg: rgba(2, 132, 199, 0.08);
@@ -237,41 +233,6 @@ h1 {
     color: var(--text-secondary);
     margin-bottom: 32px;
     font-weight: 400;
-}
-
-/* ============ SKILLS ============ */
-
-.skills {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-    margin-bottom: 32px;
-    animation: fadeUp 0.8s ease-out 0.1s both;
-}
-
-.skill-item {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    padding: 6px 14px;
-    background: var(--skill-bg);
-    border: 1px solid var(--skill-border);
-    border-radius: 20px;
-    font-size: 0.82rem;
-    font-weight: 500;
-    color: var(--text-secondary);
-    transition: all var(--transition);
-}
-
-.skill-item i {
-    font-size: 1rem;
-}
-
-.skill-item:hover {
-    border-color: var(--accent);
-    color: var(--text-primary);
-    transform: translateY(-1px);
 }
 
 /* ============ LINKS ============ */
